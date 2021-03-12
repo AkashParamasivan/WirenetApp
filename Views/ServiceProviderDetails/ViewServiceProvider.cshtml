@@ -1,0 +1,73 @@
+﻿@model IEnumerable<WirenetApp.ServiceProvider>
+
+@{
+    ViewBag.Title = "ViewServiceProvider";
+}
+
+<h2>ViewServiceProvider</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phoneno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emailid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Specialization)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ElectricianID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.experience)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rangeperhour)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phoneno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emailid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Specialization)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ElectricianID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.experience)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rangeperhour)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Book", "UserService","UserService", new {Sid=item.Sid, Uid=Convert.ToInt32(@TempData.Peek("UserId")) },null) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

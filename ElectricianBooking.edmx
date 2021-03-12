@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ElectricianServiceBookingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="adminE">
+          <Key>
+            <PropertyRef Name="aminid" />
+          </Key>
+          <Property Name="aminid" Type="int" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoginI">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ServiceProvider">
+          <Key>
+            <PropertyRef Name="Sid" />
+          </Key>
+          <Property Name="Sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phoneno" Type="bigint" Nullable="false" />
+          <Property Name="Emailid" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Specialization" Type="varchar" MaxLength="50" />
+          <Property Name="ElectricianID" Type="varchar" MaxLength="50" />
+          <Property Name="experience" Type="varchar" MaxLength="50" />
+          <Property Name="rangeperhour" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Uid" />
+          </Key>
+          <Property Name="Uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phoneno" Type="bigint" Nullable="false" />
+          <Property Name="Emailid" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserService">
+          <Key>
+            <PropertyRef Name="usid" />
+          </Key>
+          <Property Name="Uid" Type="int" />
+          <Property Name="sid" Type="int" />
+          <Property Name="datevalue" Type="date" />
+          <Property Name="timing" Type="varchar" MaxLength="50" />
+          <Property Name="usid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__UserService__sid__08B54D69">
+          <End Role="ServiceProvider" Type="Self.ServiceProvider" Multiplicity="0..1" />
+          <End Role="UserService" Type="Self.UserService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceProvider">
+              <PropertyRef Name="Sid" />
+            </Principal>
+            <Dependent Role="UserService">
+              <PropertyRef Name="sid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserService__Uid__07C12930">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="UserService" Type="Self.UserService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="UserService">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ElectricianServiceBookingModelStoreContainer">
+          <EntitySet Name="adminE" EntityType="Self.adminE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginI" EntityType="Self.LoginI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceProvider" EntityType="Self.ServiceProvider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserService" EntityType="Self.UserService" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__UserService__sid__08B54D69" Association="Self.FK__UserService__sid__08B54D69">
+            <End Role="ServiceProvider" EntitySet="ServiceProvider" />
+            <End Role="UserService" EntitySet="UserService" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserService__Uid__07C12930" Association="Self.FK__UserService__Uid__07C12930">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserService" EntitySet="UserService" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ElectricianServiceBookingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ServiceProvider">
+          <Key>
+            <PropertyRef Name="Sid" />
+          </Key>
+          <Property Name="Sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phoneno" Type="Int64" Nullable="false" />
+          <Property Name="Emailid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Specialization" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ElectricianID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="experience" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rangeperhour" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="UserServices" Relationship="ElectricianServiceBookingModel.FK__UserService__sid__49C3F6B7" FromRole="ServiceProvider" ToRole="UserService" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Uid" />
+          </Key>
+          <Property Name="Uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phoneno" Type="Int64" Nullable="false" />
+          <Property Name="Emailid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="UserServices" Relationship="ElectricianServiceBookingModel.FK__UserService__Uid__48CFD27E" FromRole="User" ToRole="UserService" />
+        </EntityType>
+        <EntityContainer Name="ElectricianServiceBookingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ServiceProviders" EntityType="Self.ServiceProvider" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserServices" EntityType="ElectricianServiceBookingModel.UserService" />
+          <AssociationSet Name="FK__UserService__sid__49C3F6B7" Association="ElectricianServiceBookingModel.FK__UserService__sid__49C3F6B7">
+            <End Role="ServiceProvider" EntitySet="ServiceProviders" />
+            <End Role="UserService" EntitySet="UserServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserService__Uid__48CFD27E" Association="ElectricianServiceBookingModel.FK__UserService__Uid__48CFD27E">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserService" EntitySet="UserServices" />
+          </AssociationSet>
+          <EntitySet Name="adminEs" EntityType="ElectricianServiceBookingModel.adminE" />
+          <EntitySet Name="LoginIs" EntityType="ElectricianServiceBookingModel.LoginI" />
+        </EntityContainer>
+        <EntityType Name="UserService">
+          <Key>
+            <PropertyRef Name="usid" />
+          </Key>
+          <Property Name="Uid" Type="Int32" />
+          <Property Name="sid" Type="Int32" />
+          <Property Name="timing" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="usid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ServiceProvider" Relationship="ElectricianServiceBookingModel.FK__UserService__sid__49C3F6B7" FromRole="UserService" ToRole="ServiceProvider" />
+          <NavigationProperty Name="User" Relationship="ElectricianServiceBookingModel.FK__UserService__Uid__48CFD27E" FromRole="UserService" ToRole="User" />
+          <Property Name="datevalue" Type="DateTime" Precision="0" />
+        </EntityType>
+        <Association Name="FK__UserService__sid__49C3F6B7">
+          <End Type="ElectricianServiceBookingModel.ServiceProvider" Role="ServiceProvider" Multiplicity="0..1" />
+          <End Type="ElectricianServiceBookingModel.UserService" Role="UserService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceProvider">
+              <PropertyRef Name="Sid" />
+            </Principal>
+            <Dependent Role="UserService">
+              <PropertyRef Name="sid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserService__Uid__48CFD27E">
+          <End Type="ElectricianServiceBookingModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="ElectricianServiceBookingModel.UserService" Role="UserService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="UserService">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="adminE">
+          <Key>
+            <PropertyRef Name="aminid" />
+          </Key>
+          <Property Name="aminid" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LoginI">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ElectricianServiceBookingModelStoreContainer" CdmEntityContainer="ElectricianServiceBookingEntities">
+          <EntitySetMapping Name="ServiceProviders">
+            <EntityTypeMapping TypeName="ElectricianServiceBookingModel.ServiceProvider">
+              <MappingFragment StoreEntitySet="ServiceProvider">
+                <ScalarProperty Name="Sid" ColumnName="Sid" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Phoneno" ColumnName="Phoneno" />
+                <ScalarProperty Name="Emailid" ColumnName="Emailid" />
+                <ScalarProperty Name="Specialization" ColumnName="Specialization" />
+                <ScalarProperty Name="ElectricianID" ColumnName="ElectricianID" />
+                <ScalarProperty Name="experience" ColumnName="experience" />
+                <ScalarProperty Name="rangeperhour" ColumnName="rangeperhour" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ElectricianServiceBookingModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Phoneno" ColumnName="Phoneno" />
+                <ScalarProperty Name="Emailid" ColumnName="Emailid" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserServices">
+            <EntityTypeMapping TypeName="ElectricianServiceBookingModel.UserService">
+              <MappingFragment StoreEntitySet="UserService">
+                <ScalarProperty Name="datevalue" ColumnName="datevalue" />
+                <ScalarProperty Name="usid" ColumnName="usid" />
+                <ScalarProperty Name="timing" ColumnName="timing" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="adminEs">
+            <EntityTypeMapping TypeName="ElectricianServiceBookingModel.adminE">
+              <MappingFragment StoreEntitySet="adminE">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="aminid" ColumnName="aminid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginIs">
+            <EntityTypeMapping TypeName="ElectricianServiceBookingModel.LoginI">
+              <MappingFragment StoreEntitySet="LoginI">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
