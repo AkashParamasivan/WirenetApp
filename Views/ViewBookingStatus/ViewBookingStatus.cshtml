@@ -1,0 +1,26 @@
+﻿@model WirenetApp.UserService
+
+@{
+    ViewBag.Title = "ViewBookingStatus";
+}
+
+<h2>ViewBookingStatus</h2>
+
+<div>
+    <h4>UserService</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Back to ServiceProviderInformation", "ViewServiceProvider","ServiceProviderDetails")
+</p>

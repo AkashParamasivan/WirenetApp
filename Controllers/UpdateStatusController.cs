@@ -40,7 +40,7 @@ namespace WirenetApp.Controllers
                     data.BookingStatus = model.BookingStatus;
                     db.SaveChanges();
 
-                    return RedirectToAction("ViewBookedDetails","ProviderView");
+                    return RedirectToAction("UpdateBookingStatus","UpdateStatus");
                 }
                 else
                     return View();

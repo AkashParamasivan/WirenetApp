@@ -43,9 +43,8 @@
             @Html.DisplayFor(modelItem => item.Address)
         </td>
         <td>
-            @Html.ActionLink("UpdateStatus", "UpdateBookingStatus","UpdateStatus", new {  id=item.Uid}) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("UpdateStatus", "UpdateBookingStatus","UpdateStatus", new {  id=item.Uid},null) |
+           
         </td>
     </tr>
 }

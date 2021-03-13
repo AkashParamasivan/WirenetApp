@@ -139,6 +139,7 @@
     <Compile Include="Controllers\ServiceProviderDetailsController.cs" />
     <Compile Include="Controllers\UpdateStatusController.cs" />
     <Compile Include="Controllers\UserServiceController.cs" />
+    <Compile Include="Controllers\ViewBookingStatusController.cs" />
     <Compile Include="ElectricianBooking.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -176,6 +177,7 @@
     <Content Include="Content\bootstrap-Superhero.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-united.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="ElectricianBooking.Context.tt">
@@ -233,6 +235,7 @@
     <Content Include="Views\ServiceProviderDetails\ViewServiceProvider.cshtml" />
     <Content Include="Views\ProviderView\ViewUserBookedDetails.cshtml" />
     <Content Include="Views\UpdateStatus\UpdateBookingStatus.cshtml" />
+    <Content Include="Views\ViewBookingStatus\ViewBookingStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
