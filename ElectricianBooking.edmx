@@ -56,6 +56,7 @@
           <Property Name="datevalue" Type="date" />
           <Property Name="timing" Type="varchar" MaxLength="50" />
           <Property Name="usid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookingStatus" Type="varchar" MaxLength="40" />
         </EntityType>
         <Association Name="FK__UserService__sid__08B54D69">
           <End Role="ServiceProvider" Type="Self.ServiceProvider" Multiplicity="0..1" />
@@ -155,6 +156,7 @@
           <NavigationProperty Name="ServiceProvider" Relationship="ElectricianServiceBookingModel.FK__UserService__sid__49C3F6B7" FromRole="UserService" ToRole="ServiceProvider" />
           <NavigationProperty Name="User" Relationship="ElectricianServiceBookingModel.FK__UserService__Uid__48CFD27E" FromRole="UserService" ToRole="User" />
           <Property Name="datevalue" Type="DateTime" Precision="0" />
+          <Property Name="BookingStatus" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK__UserService__sid__49C3F6B7">
           <End Type="ElectricianServiceBookingModel.ServiceProvider" Role="ServiceProvider" Multiplicity="0..1" />
@@ -233,6 +235,7 @@
           <EntitySetMapping Name="UserServices">
             <EntityTypeMapping TypeName="ElectricianServiceBookingModel.UserService">
               <MappingFragment StoreEntitySet="UserService">
+                <ScalarProperty Name="BookingStatus" ColumnName="BookingStatus" />
                 <ScalarProperty Name="datevalue" ColumnName="datevalue" />
                 <ScalarProperty Name="usid" ColumnName="usid" />
                 <ScalarProperty Name="timing" ColumnName="timing" />

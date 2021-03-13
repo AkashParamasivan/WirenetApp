@@ -11,7 +11,9 @@ namespace WirenetApp
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
+
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,13 +21,24 @@ namespace WirenetApp
         {
             this.UserServices = new HashSet<UserService>();
         }
-    
+
         public int Uid { get; set; }
+        [Required]
         public string FullName { get; set; }
+        [Required]
+        [RegularExpression("^[6-9]{1}[0-9]{9}$", ErrorMessage = "Invalid mobile number")]
         public long Phoneno { get; set; }
+        [Display(Name = "Email address")]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Emailid { get; set; }
+
+        [Required]
+        [RegularExpression("^[UI]{2}[0-9]{5}$", ErrorMessage = "The username should be in the fromat like 'UI' followed by 5 numbers")]
         public string Username { get; set; }
+        [Required]
         public string Password { get; set; }
+        [Required]
         public string Address { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

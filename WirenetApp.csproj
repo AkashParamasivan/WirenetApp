@@ -137,6 +137,7 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\RegisterUserController.cs" />
     <Compile Include="Controllers\ServiceProviderDetailsController.cs" />
+    <Compile Include="Controllers\UpdateStatusController.cs" />
     <Compile Include="Controllers\UserServiceController.cs" />
     <Compile Include="ElectricianBooking.Context.cs">
       <AutoGen>True</AutoGen>
@@ -171,6 +172,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-litera.css" />
+    <Content Include="Content\bootstrap-Superhero.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -228,12 +231,14 @@
     <Content Include="Views\RegisterUser\RegisterUser.cshtml" />
     <Content Include="Views\UserService\UserService.cshtml" />
     <Content Include="Views\ServiceProviderDetails\ViewServiceProvider.cshtml" />
+    <Content Include="Views\ProviderView\ViewUserBookedDetails.cshtml" />
+    <Content Include="Views\UpdateStatus\UpdateBookingStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\ProviderView\" />
     <Folder Include="Views\ServiceProvider\" />
+    <Folder Include="Views\Update\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

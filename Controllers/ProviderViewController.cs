@@ -14,20 +14,21 @@ namespace WirenetApp.Controllers
         {
             return View();
         }
-        //public ActionResult ViewUserBookedDetails()
-        //{
-        //    return View();
-        //}
-        //[HttpGet]
-        //public ActionResult ViewUserBookedDetails(UserService user)
-        //{
-        //    if (user.Uid == Convert.ToInt32(@TempData.Peek("UserId")))
-        //    {
-        //        var Data = db.Users.ToList();
-        //        return View(Data);
-               
-        //    }
-            
-        //}
+        public ActionResult ViewUserBookedDetails(int id)
+        {
+            List<User> users = new List<User>();
+                  UserService userservice = db.UserServices.SingleOrDefault(u => u.sid == id);
+                if (userservice != null) { 
+                    users = db.Users.Where(u => u.Uid == userservice.Uid).ToList();
+                    return View(users);
+               }
+
+            /* else
+             {
+                 ViewBag.show = "No one has booked you";
+             }*/
+            return View(users);
+       }
+
     }
 }

@@ -24,7 +24,9 @@ namespace WirenetApp
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{YYYY/MM/DD}")]
         public Nullable<System.DateTime> datevalue { get; set; }
-    
+
+        public string BookingStatus { get; set; }
+
         public virtual ServiceProvider ServiceProvider { get; set; }
         public virtual User User { get; set; }
     }
