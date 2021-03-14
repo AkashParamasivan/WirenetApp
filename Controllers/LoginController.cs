@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace WirenetApp.Controllers
 {
+    //[RoutePrefix("LoginAll")]
     public class LoginController : Controller
     {
         // GET: Login
@@ -14,7 +15,7 @@ namespace WirenetApp.Controllers
         {
             return View();
         }
-
+        // [Route("LoginRoute")]
         public ActionResult Login()
         {
             return View();
@@ -26,9 +27,11 @@ namespace WirenetApp.Controllers
             {
                 try
                 {
+                    
                     ViewBag.Msg = "Username or password is incorrect";
                     ServiceProvider user = db.ServiceProviders.SingleOrDefault(u => u.username == login.Username && u.Password == login.Password);
                     User user1 = db.Users.SingleOrDefault(u => u.Username == login.Username && u.Password == login.Password);
+                    adminE admin = db.adminEs.SingleOrDefault(u => u.Username == login.Username && u.Password == login.Password);
                     // TempData["UserIdU"] = user1.Uid;
 
                     if (user != null)
@@ -36,6 +39,7 @@ namespace WirenetApp.Controllers
 
                         if (user.username.StartsWith("SP"))
                         {
+                            Session["Serviceid"] = user.Sid;
                             //TempData["ServiceId"] = user.Sid;
                             return RedirectToAction("ViewUserBookedDetails", "ProviderView", new { id = user.Sid });
                         }
@@ -46,9 +50,14 @@ namespace WirenetApp.Controllers
                     {
                         if (user1.Username.StartsWith("UI"))
                         {
+                            Session["Userid"] = user1.Uid;
                             TempData["UserId"] = user1.Uid;
                             return RedirectToAction("ViewServiceProvider", "ServiceProviderDetails");
                         }
+                    }
+                    else if(admin!=null)
+                    {
+                        return RedirectToAction("Index","Admin");
                     }
                 }
                 catch
@@ -59,7 +68,13 @@ namespace WirenetApp.Controllers
             return View();
         }
 
-       
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
+
+
 
 
     }

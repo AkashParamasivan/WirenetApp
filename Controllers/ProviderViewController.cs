@@ -16,19 +16,29 @@ namespace WirenetApp.Controllers
         }
         public ActionResult ViewUserBookedDetails(int id)
         {
-            List<User> users = new List<User>();
-                  UserService userservice = db.UserServices.SingleOrDefault(u => u.sid == id);
-                if (userservice != null) { 
+            if (Session["Serviceid"] != null)
+            {
+                List<User> users = new List<User>();
+                UserService userservice = db.UserServices.SingleOrDefault(u => u.sid == id);
+                if (userservice != null)
+                {
                     users = db.Users.Where(u => u.Uid == userservice.Uid).ToList();
                     return View(users);
-               }
+                }
 
-            /* else
-             {
-                 ViewBag.show = "No one has booked you";
-             }*/
-            return View(users);
-       }
+
+                /* else
+                 {
+                     ViewBag.show = "No one has booked you";
+                 }*/
+                return View(users);
+            }
+            else
+            {
+
+                return RedirectToAction("Index", "Home");
+            }
+        }
 
     }
 }

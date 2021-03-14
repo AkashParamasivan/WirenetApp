@@ -17,8 +17,16 @@ namespace WirenetApp.Controllers
         [HttpGet]
         public  ActionResult ViewServiceProvider()
         {
-            var Data = db.ServiceProviders.ToList();
-            return View(Data);
+            if (Session["Userid"] != null)
+            {
+                var Data = db.ServiceProviders.ToList();
+                return View(Data);
+            }
+            else
+            {
+
+                return RedirectToAction("Index", "Home");
+            }
         }
     }
 }

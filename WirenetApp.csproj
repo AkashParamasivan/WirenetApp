@@ -131,6 +131,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProviderViewController.cs" />
@@ -180,6 +181,9 @@
     <Content Include="Content\bootstrap-united.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Home.css" />
+    <Content Include="Content\Login.css" />
+    <Content Include="Content\ViewServiceProvider.css" />
     <Content Include="ElectricianBooking.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ElectricianBooking.Context.cs</LastGenOutput>
@@ -236,6 +240,17 @@
     <Content Include="Views\ProviderView\ViewUserBookedDetails.cshtml" />
     <Content Include="Views\UpdateStatus\UpdateBookingStatus.cshtml" />
     <Content Include="Views\ViewBookingStatus\ViewBookingStatus.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\AdminViewElectricain.cshtml" />
+    <Content Include="Views\Admin\AdminDeleteElectrician.cshtml" />
+    <Content Include="Views\Admin\AdminViewUser.cshtml" />
+    <Content Include="Views\Admin\AdminDeleteUser.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Views\Shared\_ServiceProviderLayout.cshtml" />
+    <Content Include="Views\Admin\AdminViewUserService.cshtml" />
+    <Content Include="Views\Admin\AdminDeleteUserService.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

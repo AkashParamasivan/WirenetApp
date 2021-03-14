@@ -1,17 +1,19 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-<div class="jumbotron" style="background-image:url('/Content/login.jpeg')">
+<link rel="stylesheet" href="~/Content/Home.css" />
+@*@Html.ActionLink("Login", "Login", "Login")*@
+<button id="my-button" onclick="location.href='@Url.Action("Login", "Login", "Login")'">Login</button>
+<div  class="jumbotron" style="background-color:blueviolet">
     <h1>WIRENET</h1>
-    <p class="lead">Wirenet is a Electrician service website which used widely for electrical services in around area of Chennai</p>
+    <h3 class="lead">Wirenet is a Electrician service website which used widely for electrical services in around area of Chennai</h3>
     @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
 </div>
 
 <div class="row">
     <div class="col-md-4">
         <h2>All electrical Services</h2>
-        <p>
+        <p >
             <img src="~/Content/Electrical.jpg" alt="Electrical services" width="300" height="250">
         </p>
         @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>*@

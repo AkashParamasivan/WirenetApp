@@ -1,0 +1,72 @@
+﻿@model IEnumerable<WirenetApp.UserService>
+
+@{
+    Layout = null;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdminViewUserService</title>
+</head>
+<body>
+    <p>
+  
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Uid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.timing)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.usid)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.datevalue)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.BookingStatus)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Uid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.timing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.usid)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.datevalue)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingStatus)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "AdminDeleteUserService", new { uid = item.Uid })
+
+               
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

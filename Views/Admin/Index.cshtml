@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Welcome Administrator</h2>
+<button id="my-button" onclick="location.href='@Url.Action("AdminViewUser", "Admin")'">Details of User</button>
+<button id="my-button" onclick="location.href='@Url.Action("AdminViewElectricain", "Admin")'">Details of Electrician</button>
+<button id="my-button" onclick="location.href='@Url.Action("AdminViewUserService", "Admin")'">Details of UserService</button>
+<div></div>
+@Html.ActionLink("Logout", "Login", "Login") 

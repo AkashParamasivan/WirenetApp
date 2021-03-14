@@ -2,26 +2,27 @@
 
 @{
     ViewBag.Title = "ViewUserBookedDetails";
+    Layout = "~/Views/Shared/_ServiceProviderLayout.cshtml";
 }
 
 <h2>ViewUserBookedDetails</h2>
-
+<link rel="stylesheet" href="~/Content/ViewServiceProvider.css" />
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table" style="color:black">
     <tr>
        
-        <th>
+        <th class="font">
             @Html.DisplayNameFor(model => model.FullName)
         </th>
-        <th>
+        <th class="font">
             @Html.DisplayNameFor(model => model.Phoneno)
         </th>
-        <th>
+        <th class="font">
             @Html.DisplayNameFor(model => model.Emailid)
         </th>
-        <th>
+        <th class="font">
             @Html.DisplayNameFor(model => model.Address)
         </th>
         <th></th>
@@ -30,19 +31,19 @@
 @foreach (var item in Model) {
     <tr>
 
-        <td>
+        <td class="font" >
             @Html.DisplayFor(modelItem => item.FullName)
         </td>
-        <td>
+        <td class="font">
             @Html.DisplayFor(modelItem => item.Phoneno)
         </td>
-        <td>
+        <td class="font">
             @Html.DisplayFor(modelItem => item.Emailid)
         </td>
-        <td>
+        <td class="font">
             @Html.DisplayFor(modelItem => item.Address)
         </td>
-        <td>
+        <td class="font">
             @Html.ActionLink("UpdateStatus", "UpdateBookingStatus","UpdateStatus", new {  id=item.Uid},null) |
            
         </td>
@@ -50,3 +51,6 @@
 }
 
 </table>
+
+@Html.ActionLink("Logout","Logout","Login")
+

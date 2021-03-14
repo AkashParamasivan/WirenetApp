@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "UpdateBookingStatus";
+    Layout = "~/Views/Shared/_ServiceProviderLayout.cshtml";
 }
 
 <h2>UpdateBookingStatus</h2>
@@ -40,6 +41,9 @@
 
 <div>
     @Html.ActionLink("Back to UserInfo", "ViewUserBookedDetails", "ProviderView", new {  id=Model.sid },null) |
+</div>
+<div>
+    @ViewBag.msg
 </div>
 
 @section Scripts {

@@ -17,9 +17,16 @@ namespace WirenetApp.Controllers
        
         public ActionResult UpdateBookingStatus(int id)
         {
-
+            try
+            {
                 var data = db.UserServices.Where(x => x.Uid == id).SingleOrDefault();
                 return View(data);
+            }
+            catch(Exception ex)
+            {
+                ViewBag.msg = ex.Message;
+                return View();
+            }
            
         }
 
