@@ -27,7 +27,7 @@ namespace WirenetApp.Controllers
         {
             
              UserService data = db.UserServices.Where(x => x.sid == id).SingleOrDefault();
-            ViewBag.msg = "Updated Successfully!";
+           // ViewBag.msg = "Updated Successfully!";
             return View(data);
 
         }

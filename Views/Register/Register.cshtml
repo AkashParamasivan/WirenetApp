@@ -4,7 +4,7 @@
     ViewBag.Title = "Register";
 }
 
-<h2>Register</h2>
+
 
 
 @using (Html.BeginForm())
@@ -47,8 +47,16 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Specialization, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Specialization, new { htmlAttributes = new { @class = "form-control" } })
+                        @*@Html.EditorFor(model => model.Specialization, new { htmlAttributes = new { @class = "form-control" } })*@
                         @Html.ValidationMessageFor(model => model.Specialization, "", new { @class = "text-danger" })
+                        @Html.DropDownListFor(model => model.Specialization, new List<SelectListItem>
+        {
+                new SelectListItem() {Text = "All Electrical works", Value="All Electrical works"},
+                new SelectListItem() {Text = "Appliances repair", Value="Appliances repair"},
+                new SelectListItem() {Text = "wiring works", Value="wiring works"},
+                new SelectListItem() {Text = "Motor repair", Value="Motor repair"},
+                new SelectListItem() {Text = "Gadgets repair", Value="Gadgets repair"}
+        })
                     </div>
                 </div>
 

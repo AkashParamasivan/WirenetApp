@@ -28,5 +28,28 @@ namespace WirenetApp.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+
+        //public JsonResult GetSearchingData(string SearchBy,string SearchValue)
+        //{
+        //    List<ServiceProvider> services = new List<ServiceProvider>();
+        //    if(SearchBy=="ID")
+        //    {
+        //        try
+        //        {
+        //            int Id = Convert.ToInt32(SearchValue);
+        //            services = db.ServiceProviders.Where(x => x.Sid == Id || SearchValue == null).ToList();
+        //        }
+        //        catch(FormatException)
+        //        {
+        //            Console.WriteLine("{0} is Not a ID",SearchValue);
+        //        }
+        //        return Json(services, JsonRequestBehavior.AllowGet);
+        //    }
+        //    else
+        //    {
+        //        services = db.ServiceProviders.Where(x => x.Specialization.Contains(SearchValue)).ToList();
+        //        return Json(services,JsonRequestBehavior.AllowGet);
+        //    }
+        //}
     }
 }
