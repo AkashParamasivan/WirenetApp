@@ -12,6 +12,7 @@ namespace WirenetApp
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
 
     public partial class ServiceProvider
     {
@@ -41,8 +42,10 @@ namespace WirenetApp
         public int rangeperhour { get; set; }
         [Required]
         [RegularExpression("^[SP]{2}[0-9]{5}$", ErrorMessage = "The username should be in the fromat like 'SP' followed by 5 numbers")]
-
+        [Remote("IsElectricianUserNameExist", "Unique", AdditionalFields = "Id",
+                ErrorMessage = "Username name already exists")]
         public string username { get; set; }
+        [Required]
         public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

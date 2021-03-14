@@ -6,10 +6,12 @@ using System.Web.Mvc;
 
 namespace WirenetApp.Controllers
 {
+    //[RoutePrefix("Administrator")]
     public class AdminController : Controller
     {
         ElectricianServiceBookingEntities db = new ElectricianServiceBookingEntities();
         // GET: Admin
+        [Route("Adminpage")]
         public ActionResult Index()
         {
             return View();
@@ -35,7 +37,7 @@ namespace WirenetApp.Controllers
                 {
                     db.ServiceProviders.Remove(data);
                     db.SaveChanges();
-                    return RedirectToAction("AdminViewElectricain");
+                    return RedirectToAction("Index");
                 }
                 else
                     return View();
@@ -64,7 +66,7 @@ namespace WirenetApp.Controllers
             {
                 db.Users.Remove(data);
                 db.SaveChanges();
-                return RedirectToAction("AdminViewUser");
+                return RedirectToAction("Index");
             }
             else
                 return View();
@@ -85,15 +87,15 @@ namespace WirenetApp.Controllers
 
         [HttpPost]
 
-        public ActionResult AdminDeleteUserService(int uid)
+        public ActionResult AdminDeleteUserService(int Sid)
         {
 
-            var data = db.UserServices.FirstOrDefault(x => x.Uid == uid);
+            var data = db.UserServices.FirstOrDefault(x => x.sid == Sid);
             if (data != null)
             {
                 db.UserServices.Remove(data);
                 db.SaveChanges();
-                return RedirectToAction("AdminViewUser");
+                return RedirectToAction("Index");
             }
             else
                 return View();

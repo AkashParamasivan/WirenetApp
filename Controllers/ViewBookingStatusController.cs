@@ -25,8 +25,9 @@ namespace WirenetApp.Controllers
 
         public ActionResult ViewBookingStatus(int id)
         {
-
+            
              UserService data = db.UserServices.Where(x => x.sid == id).SingleOrDefault();
+            ViewBag.msg = "Updated Successfully!";
             return View(data);
 
         }

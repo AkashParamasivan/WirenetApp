@@ -60,7 +60,7 @@
                 @Html.DisplayFor(modelItem => item.BookingStatus)
             </td>
             <td>
-                @Html.ActionLink("Delete", "AdminDeleteUserService", new { uid = item.Uid })
+                @Html.ActionLink("Delete", "AdminDeleteUserService", new { Sid = item.sid})
 
                
             </td>
@@ -68,5 +68,8 @@
     }
     
     </table>
+    <div>
+        @Html.ActionLink("Back to AdminPage", "Index", new { /* id=item.PrimaryKey */ })
+    </div>
 </body>
 </html>

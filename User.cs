@@ -9,10 +9,12 @@
 
 namespace WirenetApp
 {
+   // using ServiceStack.DataAnnotations;
+    //using ServiceStack.DataAnnotations;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+   using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
 
     public partial class User
     {
@@ -35,6 +37,8 @@ namespace WirenetApp
 
         [Required]
         [RegularExpression("^[UI]{2}[0-9]{5}$", ErrorMessage = "The username should be in the fromat like 'UI' followed by 5 numbers")]
+        [Remote("IsUserNameExist", "Unique", AdditionalFields = "Id",
+                ErrorMessage = "Username name already exists")]
         public string Username { get; set; }
         [Required]
         public string Password { get; set; }
