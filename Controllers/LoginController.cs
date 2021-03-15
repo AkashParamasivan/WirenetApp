@@ -53,7 +53,7 @@ namespace WirenetApp.Controllers
                             Session["Userid"] = user1.Uid;
                             TempData["UserId"] = user1.Uid;
                             Session["Username"] = user1.Username;
-                           
+                            ViewBag.message= Session["Username"];
                             return RedirectToAction("ViewServiceProvider", "ServiceProviderDetails");
                         }
                     }

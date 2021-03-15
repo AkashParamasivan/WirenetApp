@@ -7,15 +7,37 @@
     <title>@ViewBag.Title - Administrator</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    
+    <style>
+        header {
+            background-color: darkblue;
+            padding: 7px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+            header h3 {
+                color: white;
+                border: 8px solid white;
+                display: inline-block;
+                padding: 6px 12px;
+                border-radius: 20px;
+            }
+    </style>
     
 </head>
-<body style="background-image:url('/Content/User1.jpg')">
+@*<body style="background-color:blueviolet">*@
+<body>
+    <header> <h3>WIRENET</h3></header>
+    <h2>ViewServiceProvider</h2>
 
-  
 
 
-   
+
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
