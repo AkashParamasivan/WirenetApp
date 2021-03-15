@@ -30,18 +30,16 @@ namespace WirenetApp.Controllers
            
         }
 
-        // To specify that this will be  
-        // invoked when post method is called 
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult UpdateBookingStatus(int id, UserService model)
         {
             
-                // Use of lambda expression to access 
-                // particular record from a database 
+           
                 var data = db.UserServices.FirstOrDefault(x => x.Uid == id);
 
-                // Checking if any such record exist  
+         
                 if (data != null)
                 {
                     data.BookingStatus = model.BookingStatus;

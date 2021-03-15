@@ -16,19 +16,19 @@
     <p>
   
     </p>
-    <table class="table">
+    <table class="table" style="color:black">
         <tr>
            
-            <th>
+            <th style="background-color:white">
                 @Html.DisplayNameFor(model => model.timing)
             </th>
-            <th>
+            <th style="background-color:white">
                <p>No of User Booked</p>
             </th>
-            <th>
+            <th style="background-color:white">
                 <p>Booking Date</p>
             </th>
-            <th>
+            <th style="background-color:white">
                 @Html.DisplayNameFor(model => model.BookingStatus)
             </th>
             <th></th>
@@ -51,8 +51,9 @@
                 @Html.DisplayFor(modelItem => item.BookingStatus)
             </td>
             <td>
-                @Html.ActionLink("Delete", "AdminDeleteUserService", new { Sid = item.sid})
-
+                <div style="background-color:black">
+                    @Html.ActionLink("Delete", "AdminDeleteUserService", new { Sid = item.sid })
+                </div>
                
             </td>
         </tr>

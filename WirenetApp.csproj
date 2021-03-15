@@ -198,6 +198,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Homeindex.css" />
     <Content Include="Content\Login.css" />
+    <Content Include="Content\table.css" />
     <Content Include="Content\UserLayout.css" />
     <Content Include="Content\ViewServiceProvider.css" />
     <Content Include="ElectricianBooking.Context.tt">

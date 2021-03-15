@@ -19,6 +19,7 @@ namespace WirenetApp.Controllers
         {
             if (Session["Userid"] != null)
             {
+                ViewBag.message = Session["Username"];
                 var Data = db.ServiceProviders.ToList();
                 return View(Data);
             }

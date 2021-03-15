@@ -41,6 +41,7 @@ namespace WirenetApp.Controllers
                         {
                             Session["Serviceid"] = user.Sid;
                             //TempData["ServiceId"] = user.Sid;
+                            Session["Username"] = user.FullName;
                             return RedirectToAction("ViewUserBookedDetails", "ProviderView", new { id = user.Sid });
                         }
 
@@ -52,8 +53,8 @@ namespace WirenetApp.Controllers
                         {
                             Session["Userid"] = user1.Uid;
                             TempData["UserId"] = user1.Uid;
-                            Session["Username"] = user1.Username;
-                            ViewBag.message= Session["Username"];
+                            Session["Username"] = user1.FullName;
+                           
                             return RedirectToAction("ViewServiceProvider", "ServiceProviderDetails");
                         }
                     }

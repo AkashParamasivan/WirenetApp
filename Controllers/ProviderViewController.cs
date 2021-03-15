@@ -23,7 +23,7 @@ namespace WirenetApp.Controllers
                 if (userservice != null)
                 {
                     users = db.Users.Where(u => u.Uid == userservice.Uid).ToList();
-                   
+                    ViewBag.message = Session["Username"];
                     return View(users);
                 }
 

@@ -10,27 +10,27 @@
 <p>
     @*@Html.ActionLink("Create New", "Create")*@
 </p>
-<table class="table" >
+<table class="table" style="color:black">
     <tr>
-        <th style="background-color:black">
+        <th style="background-color:white">
             @Html.DisplayNameFor(model => model.FullName)
         </th>
-        <th style="background-color:black">
+        <th style="background-color:white">
             @Html.DisplayNameFor(model => model.Phoneno)
         </th>
-        <th style="background-color:black">
+        <th style="background-color:white">
             @Html.DisplayNameFor(model => model.Emailid)
         </th>
-        <th style="background-color:black">
+        <th style="background-color:white">
             @Html.DisplayNameFor(model => model.Specialization)
         </th>
-        <th style="background-color:black">
+       <th style="background-color:white">
             @Html.DisplayNameFor(model => model.ElectricianID)
         </th>
-        <th style="background-color:black">
+        <th style="background-color:white">
             @Html.DisplayNameFor(model => model.experience)
         </th>
-        <th style="background-color:black">
+        <th style="background-color:white">
             @Html.DisplayNameFor(model => model.rangeperhour)
         </th>
 
@@ -65,9 +65,13 @@
             <td>
                 @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
         @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
-                @Html.ActionLink("Update", "UpdateElectricianDetails", new { seid = item.Sid },null)|
-                @Html.ActionLink("Delete", "AdminDeleteElectrician", new { eid = item.Sid })
-
+                <div style="background-color:black">
+                    @Html.ActionLink("Update", "UpdateElectricianDetails", new { seid = item.Sid }, null)|
+                    @Html.ActionLink("Delete", "AdminDeleteElectrician", new { eid = item.Sid })
+                </div>
+                @*<button id="my-button" onclick="location.href='@Url.Action("UpdateElectricianDetails", new { seid = item.Sid }, null)'">Update User details</button>
+                <button id="my-button" onclick="location.href='@Url.Action("AdminDeleteElectrician", new { eid = item.Sid })'">Delete User details</button>
+*@
             </td>
         </tr>
     }

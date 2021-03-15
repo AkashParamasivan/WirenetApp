@@ -5,24 +5,24 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>AdminViewUser</h2>
+<h2 style="color:black">AdminViewUser</h2>
 
 <p>
 
 </p>
-<table class="table">
+<table class="table" style="color:black">
     <tr>
 
-        <th style="background-color:black">
+        <th style="background-color:white">
             @Html.DisplayNameFor(model => model.FullName)
         </th>
-        <th style="background-color:black">
+        <th style="background-color:white">
             @Html.DisplayNameFor(model => model.Phoneno)
         </th>
-        <th style="background-color:black">
+        <th style="background-color:white">
             @Html.DisplayNameFor(model => model.Emailid)
         </th>
-        <th style="background-color:black">
+        <th style="background-color:white">
             @Html.DisplayNameFor(model => model.Address)
         </th>
         <th></th>
@@ -45,8 +45,9 @@
                 @Html.DisplayFor(modelItem => item.Address)
             </td>
             <td>
-
-                @Html.ActionLink("Delete", "AdminDeleteUser", new {  uid=item.Uid })
+                <div style="background-color:black">
+                    @Html.ActionLink("Delete", "AdminDeleteUser", new { uid = item.Uid })
+                </div>
 
             </td>
         </tr>
