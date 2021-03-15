@@ -39,5 +39,7 @@ namespace WirenetApp.Controllers
                 return Json(true, JsonRequestBehavior.AllowGet);
             }
         }
+
+        
     }
 }

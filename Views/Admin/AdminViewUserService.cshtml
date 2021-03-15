@@ -18,21 +18,16 @@
     </p>
     <table class="table">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Uid)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.sid)
-            </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.timing)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.usid)
+               <p>No of User Booked</p>
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.datevalue)
-            </th>*@
+            <th>
+                <p>Booking Date</p>
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.BookingStatus)
             </th>
@@ -41,21 +36,17 @@
     
     @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Uid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.sid)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.timing)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.usid)
             </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.datevalue)
-            </td>*@
+            <td>
+               @* @Html.(modelItem => item.datevalue.ToString)*@
+                @item.datevalue
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.BookingStatus)
             </td>

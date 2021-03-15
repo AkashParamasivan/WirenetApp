@@ -152,6 +152,7 @@
     <Compile Include="Controllers\RegisterUserController.cs" />
     <Compile Include="Controllers\ServiceProviderDetailsController.cs" />
     <Compile Include="Controllers\UniqueController.cs" />
+    <Compile Include="Controllers\UniqueEIDController.cs" />
     <Compile Include="Controllers\UpdateStatusController.cs" />
     <Compile Include="Controllers\UserServiceController.cs" />
     <Compile Include="Controllers\ViewBookingStatusController.cs" />
@@ -197,6 +198,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Homeindex.css" />
     <Content Include="Content\Login.css" />
+    <Content Include="Content\UserLayout.css" />
     <Content Include="Content\ViewServiceProvider.css" />
     <Content Include="ElectricianBooking.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -265,11 +267,13 @@
     <Content Include="Views\Shared\_ServiceProviderLayout.cshtml" />
     <Content Include="Views\Admin\AdminViewUserService.cshtml" />
     <Content Include="Views\Admin\AdminDeleteUserService.cshtml" />
+    <Content Include="Views\Admin\UpdateElectricianDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\ServiceProvider\" />
+    <Folder Include="Views\UniqueEID\" />
     <Folder Include="Views\Unique\" />
     <Folder Include="Views\Update\" />
   </ItemGroup>

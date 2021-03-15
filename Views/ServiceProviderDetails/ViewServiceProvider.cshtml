@@ -124,16 +124,17 @@
     </script>*@
 <input type="text" id="txtsearch" placeholder="Enter the Specilization" />
 
+
 <table class="table" style="color:chocolate">
     <tr>
 
-        <th class="font">Full Name </th>
-        <th class="font">Phone number</th>
-        <th class="font">EmailID</th>
-        <th class="font">Specialization</th>
-        <th class="font">ElectricianLicenseID</th>
-        <th class="font">Experience</th>
-        <th class="font">Costperhour</th>
+        <th class="font" style="background-color:black">Full Name </th>
+        <th class="font" style="background-color:black">Phone number</th>
+        <th class="font" style="background-color:black">EmailID</th>
+        <th class="font" style="background-color:black">Specialization</th>
+        <th class="font"style="background-color:black">ElectricianLicenseID</th>
+        <th class="font" style="background-color:black">Experience</th>
+        <th class="font" style="background-color:black">Costperhour</th>
 
         <th></th>
     </tr>
@@ -166,8 +167,10 @@
 
             <td class="font">
 
-                @Html.ActionLink("Booking Status", "ViewBookingStatus", "ViewBookingStatus", new { id = item.Sid }, null) |
-                @Html.ActionLink("Book", "UserService", "UserService", new { Sid = item.Sid, Uid = Convert.ToInt32(@TempData.Peek("UserId")) }, null) |
+                @*@Html.ActionLink("Booking Status", "ViewBookingStatus", "ViewBookingStatus", new { id = item.Sid }, null) |
+                @Html.ActionLink("Book", "UserService", "UserService", new { Sid = item.Sid, Uid = Convert.ToInt32(@TempData.Peek("UserId")) }, null) |*@
+                <button id="my-button" onclick="location.href='@Url.Action( "ViewBookingStatus", "ViewBookingStatus", new { id = item.Sid }, null)'">Booking Status</button>
+                <button id="my-button" onclick="location.href='@Url.Action( "UserService", "UserService", new { Sid = item.Sid, Uid = Convert.ToInt32(@TempData.Peek("UserId")) }, null)'">Book</button>
             </td>
         </tr>
     }
@@ -193,4 +196,8 @@
 
     });
 </script>
-    @Html.ActionLink("Logout", "Logout", "Login")
+<div style="font-size:larger">
+    <b>
+        @Html.ActionLink("Logout", "Logout", "Login")
+    </b>
+</div>

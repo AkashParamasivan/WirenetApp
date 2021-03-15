@@ -35,6 +35,8 @@ namespace WirenetApp
         [Required]
         public string Specialization { get; set; }
         [Required]
+        [Remote("IsElectricianIDNameExist", "UniqueEID", AdditionalFields = "id",
+                ErrorMessage = "electrician licenseID already exists")]
         public string ElectricianID { get; set; }
         [Required]
         public string experience { get; set; }

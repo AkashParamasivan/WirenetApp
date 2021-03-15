@@ -52,6 +52,8 @@ namespace WirenetApp.Controllers
                         {
                             Session["Userid"] = user1.Uid;
                             TempData["UserId"] = user1.Uid;
+                            Session["Username"] = user1.Username;
+                           
                             return RedirectToAction("ViewServiceProvider", "ServiceProviderDetails");
                         }
                     }

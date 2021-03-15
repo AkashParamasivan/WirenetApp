@@ -6,49 +6,49 @@
 }
 
 <h2>ViewUserBookedDetails</h2>
-<link rel="stylesheet" href="~/Content/ViewServiceProvider.css" />
+<h2>@Session["Username"]</h2>
+@*<link rel="stylesheet" href="~/Content/ViewServiceProvider.css" />*@
 
-<table class="table" style="color:black">
+
+
+<table class="table" style="color:coral">
+
     <tr>
-       
-        <th class="font">
-            @Html.DisplayNameFor(model => model.FullName)
-        </th>
-        <th class="font">
-            @Html.DisplayNameFor(model => model.Phoneno)
-        </th>
-        <th class="font">
-            @Html.DisplayNameFor(model => model.Emailid)
-        </th>
-        <th class="font">
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
+
+        <th class="font" style="background-color:white">Full Name </th>
+        <th class="font" style="background-color:white">Phone number</th>
+        <th class="font" style="background-color:white">EmailID</th>
+        <th class="font" style="background-color:white">Address</th>
+
+
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
+    @foreach (var item in Model)
+    {
+        <tr>
 
-        <td class="font" >
-            @Html.DisplayFor(modelItem => item.FullName)
-        </td>
-        <td class="font">
-            @Html.DisplayFor(modelItem => item.Phoneno)
-        </td>
-        <td class="font">
-            @Html.DisplayFor(modelItem => item.Emailid)
-        </td>
-        <td class="font">
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td class="font">
-            @Html.ActionLink("UpdateStatus", "UpdateBookingStatus","UpdateStatus", new {  id=item.Uid},null) |
-           
-        </td>
-    </tr>
-}
+            <td class="font">
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td class="font">
+                @Html.DisplayFor(modelItem => item.Phoneno)
+            </td>
+            <td class="font">
+                @Html.DisplayFor(modelItem => item.Emailid)
+            </td>
+            <td class="font">
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td class="font">
+                @*@Html.ActionLink("UpdateStatus", "UpdateBookingStatus", "UpdateStatus", new { id = item.Uid }, null) |*@
+                <button id="my-button" onclick="location.href='@Url.Action("UpdateBookingStatus", "UpdateStatus", new { id = item.Uid }, null)'">UpdateStatus</button>
+
+            </td>
+        </tr>
+    }
 
 </table>
+<button id="my-button" onclick="location.href='@Url.Action("Logout", "Login")'">Logout</button>
 
-@Html.ActionLink("Logout","Logout","Login")
 

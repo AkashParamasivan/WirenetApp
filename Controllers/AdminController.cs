@@ -27,24 +27,25 @@ namespace WirenetApp.Controllers
             return View();
         }
 
-        [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public ActionResult AdminDeleteElectrician(int eid)
-        {
-
-                var data = db.ServiceProviders.FirstOrDefault(x=>x.Sid ==eid);
-                if (data != null)
-                {
-                    db.ServiceProviders.Remove(data);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                else
-                    return View();
         
-        }
+    [HttpPost]
+    //[ValidateAntiForgeryToken]
+    public ActionResult AdminDeleteElectrician(int eid)
+    {
 
-        [HttpGet]
+        var data = db.ServiceProviders.FirstOrDefault(x => x.Sid == eid);
+        if (data != null)
+        {
+            db.ServiceProviders.Remove(data);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        else
+            return View();
+
+    }
+
+    [HttpGet]
         public ActionResult AdminViewUser()
         {
             var Data = db.Users.ToList();
@@ -101,5 +102,40 @@ namespace WirenetApp.Controllers
                 return View();
 
         }
-    }
+
+        public ActionResult UpdateElectricianDetails(int seid)
+        {
+
+            var data = db.ServiceProviders.Where(x => x.Sid == seid).SingleOrDefault();
+            return View(data);
+
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateElectricianDetails(int seid, ServiceProvider model)
+        {
+
+            var data = db.ServiceProviders.FirstOrDefault(x => x.Sid == seid);
+
+
+            if (data != null)
+            {
+                data.FullName = model.FullName;
+                data.Phoneno = model.Phoneno;
+                data.Emailid = model.Emailid;
+                data.Specialization = model.Specialization;
+                data.experience = model.experience;
+                data.rangeperhour = model.rangeperhour;
+                db.SaveChanges();
+
+
+                return RedirectToAction("Index");
+            }
+            else
+                return View();
+        }
+    
+}
 }

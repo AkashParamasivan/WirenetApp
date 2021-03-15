@@ -23,6 +23,7 @@ namespace WirenetApp.Controllers
                 if (userservice != null)
                 {
                     users = db.Users.Where(u => u.Uid == userservice.Uid).ToList();
+                   
                     return View(users);
                 }
 
