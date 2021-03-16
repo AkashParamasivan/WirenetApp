@@ -39,7 +39,9 @@ namespace WirenetApp
                 ErrorMessage = "electrician licenseID already exists")]
         public string ElectricianID { get; set; }
         [Required]
+        [Display(Name = "Experience")]
         public string experience { get; set; }
+        [Display(Name = "Cost For an hour")]
         [Required]
         public int rangeperhour { get; set; }
         [Required]

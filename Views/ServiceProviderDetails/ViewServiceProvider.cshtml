@@ -124,7 +124,7 @@
     </script>*@
 <h2 style="color:yellow;font-size:larger;font:bolder">Welcome @ViewBag.message</h2>
 
-<input type="text" id="txtsearch" placeholder="Enter the Specilization" />
+<div style="color:black">Search by:<input type="text" id="txtsearch" placeholder="Enter the Specilization" /></div>
 
 
 <table class="table "  style="color:darkred; font-size:medium">
@@ -184,7 +184,7 @@
         $("table tr").each(function (results) {
             if (results !== 0)
             {
-                var id = $(this).find("td:nth-child(4)").text();
+                var id = $(this).find("td:nth-child(3)").text();
                 if (id.indexOf(txtenter) !== 0 && id.toLowerCase().indexOf(txtenter.toLowerCase()) < 0) {
                     $(this).hide();
                 }

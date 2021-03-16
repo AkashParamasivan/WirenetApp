@@ -51,11 +51,14 @@
             @Html.DropDownListFor(model => model.timing, new List<SelectListItem>
 {
                     new SelectListItem() {Text = "--SELECT TIME--"},
+                    new SelectListItem() {Text = "9AM-1PM", Value="9AM-1PM"},
+                    new SelectListItem() {Text = "1PM-6PM", Value="1AM-6PM"},
                     new SelectListItem() {Text = "9AM-11AM", Value="9AM-11AM"},
                     new SelectListItem() {Text = "11AM-1PM", Value="9AM-11AM"},
                     new SelectListItem() {Text = "1PM-2PM", Value="9AM-11AM"},
                     new SelectListItem() {Text = "2PM-5PM", Value="2AM-5AM"},
-                    new SelectListItem() {Text = "5PM-7PM", Value="5pm-7AM"}
+                    new SelectListItem() {Text = "5PM-7PM", Value="5pm-7AM"},
+                    new SelectListItem() {Text = "full working hours", Value="full working hours"}
 })
 
         </div>

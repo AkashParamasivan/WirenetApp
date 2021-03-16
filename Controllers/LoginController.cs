@@ -41,7 +41,7 @@ namespace WirenetApp.Controllers
                         {
                             Session["Serviceid"] = user.Sid;
                             //TempData["ServiceId"] = user.Sid;
-                            Session["Username"] = user.FullName;
+                            Session["Username1"] = user.FullName;
                             return RedirectToAction("ViewUserBookedDetails", "ProviderView", new { id = user.Sid });
                         }
 
@@ -65,7 +65,7 @@ namespace WirenetApp.Controllers
                 }
                 catch
                 {
-                    ViewBag.Message = "User Not Found !! Please Enter the correct Username and Password !!";
+                    ViewBag.Message = " Please Enter the correct Username and Password !!";
                 }
             }
             return View();
